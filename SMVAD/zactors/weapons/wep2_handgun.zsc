@@ -1,0 +1,23 @@
+class handgun : Weapon {
+	Default {
+	Weapon.SelectionOrder 1900;
+	Weapon.SlotNumber 2;
+	Weapon.AmmoType "RevolverRound";
+	Weapon.AmmoUse 1;
+	Weapon.AmmoGive1 0;
+	Weapon.Kickback 40;
+	Weapon.BobRangeX 0.9;
+	Weapon.BobRangeY 0.45;
+	Weapon.BobSpeed 1.1;
+	Weapon.BobStyle "Alpha";
+	Weapon.UpSound "up/revolver";
+	+WEAPON.AMMO_OPTIONAL
+	+WEAPON.NOAUTOFIRE
+	+WEAPON.NOALERT
+	+INVENTORY.UNDROPPABLE // More than untossable, the player should NEVER lose this weapon.
+	Scale 0.75;
+	Decal "BulletChip";
+	Tag "$WN_REVOLVER";
+	Inventory.Pickupmessage "$WP_REVOLVER";
+	}
+}

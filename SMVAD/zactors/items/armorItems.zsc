@@ -1,0 +1,66 @@
+/*
+Ballistic Plate
+A primitive ballistic plate. Insert this into your utility vest to get some
+protection. They typically become ineffective after a single impact.
+*/
+class BallisticPlate : BasicArmorBonus replaces ArmorBonus {
+	Default {
+		Radius 20;
+		Height 16;
+		Inventory.PickupMessage "$IP_BPLATE";
+		Inventory.Icon "ARM1A0";
+		Armor.SavePercent 50;
+		Armor.SaveAmount 2;
+		Armor.MaxSaveAmount 150;
+	}
+	States {
+		Spawn:
+			BON2 ABCDCB 6;
+			Loop;
+	}
+}
+/*
+Spacer Flak Vest
+This piece of basic protection is commonly used as a personal security measure
+for civilians and spacers operating in EVA environments. Naturally this also
+means that it's abundant and easy to find, but also that it won't protect you
+from any serious threat.
+*/
+class SpacerArmor : BasicArmorPickup replaces GreenArmor {
+	Default {
+		Radius 20;
+		Height 16;
+		Inventory.PickupMessage "$IP_SARM";
+		Inventory.Icon "ARM1A0";
+		Armor.SavePercent 50;
+		Armor.SaveAmount 75;
+	}
+	States {
+		Spawn:
+			ARM1 A 30;
+			ARM1 A 5 Bright;
+			Loop;
+	}
+}
+/*
+Combat Armor
+An actual vest useful for fighting. It's a vest with multiple light weight
+composite armor plates attached to its exterior, which can contain most types of
+attacks that strike the wearer. 
+*/
+class CombatArmor : BasicArmorPickup replaces BlueArmor {
+	Default {
+		Radius 20;
+		Height 16;
+		Inventory.PickupMessage "$IP_CARM";
+		Inventory.Icon "ARM2A0";
+		Armor.SavePercent 50;
+		Armor.SaveAmount 150;
+	}
+	States {
+		Spawn:
+			ARM2 A 30;
+			ARM2 A 5 Bright;
+			Loop;
+	}
+}

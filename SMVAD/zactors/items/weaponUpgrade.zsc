@@ -1,0 +1,22 @@
+class WeaponUpgrade : Health {
+	Default {
+		+COUNTITEM
+		+INVENTORY.AUTOACTIVATE
+		+INVENTORY.ALWAYSPICKUP
+		+INVENTORY.FANCYPICKUPSOUND
+		Inventory.Amount 0;
+		Inventory.MaxAmount 200;
+		Inventory.PickupMessage "YOU GOT THE TEST PICKUP"; // "Supercharge!"
+		Inventory.PickupSound "misc/p_pkup";
+	}
+	States {
+		Spawn:
+			SOUL ABCDCB 6 Bright;
+			Loop;
+		Pickup:
+			TNT1 A 0 {
+				A_GiveInventory("WepTestUpgrade1",1);
+				Return Resolvestate(null);
+			}
+	}
+}

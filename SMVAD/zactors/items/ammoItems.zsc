@@ -1,0 +1,88 @@
+//for use by the torpedo cannon, affected by gravity
+class Torpedo : Actor {
+	Default {
+		Radius 11;
+		Height 8;
+		Speed 35;
+		Damage 20;
+		Gravity 0.1;
+		+NOBLOCKMAP
+		+DROPOFF
+		+MISSILE
+		+ACTIVATEIMPACT
+		+ACTIVATEPCROSS
+		+NOTELEPORT
+		SeeSound "weapons/rocklf";
+		DeathSound "weapons/rocklx";
+		Obituary "$OB_TORPEDO";
+	}
+	States {
+		Spawn:
+			MISL A 1 Bright;
+			Loop;
+		Death:
+			MISL B 8 Bright {
+				A_Explode();
+				return resolveState (null);
+			}
+			MISL C 6 Bright;
+			MISL D 4 Bright;
+			Stop;			
+	}
+}
+
+class HomingTorpedo : Actor {
+	Default {
+		Projectile;
+		+RANDOMIZE
+		+SEEKERMISSILE
+		Radius 11;
+		Height 8;
+		Speed 10;
+		Damage 20;
+		SeeSound "skeleton/attack";
+		DeathSound "skeleton/tracex";
+		RenderStyle "Add";
+	}
+	States {
+		Spawn:
+			FATB AB 1 Bright A_SeekerMissile(0,2);
+			Loop;
+		Death:
+			MISL B 8 Bright {
+				A_Explode();
+				return resolveState (null);
+			}
+			MISL C 6 Bright;
+			MISL D 4 Bright;
+			Stop;			
+	}
+}
+
+class TorpedoAmmo : Ammo replaces RocketAmmo {
+	Default {
+		Inventory.PickupMessage "$AP_TORPEDO";
+		Inventory.Amount 1;
+		Inventory.MaxAmount 50;
+		Ammo.BackpackAmount 1;
+		Ammo.BackpackMaxAmount 100;
+		Inventory.Icon "TRPDA0";
+	}
+	States {
+		Spawn:
+			TRPD A -1;
+			Stop;		
+	}
+}
+
+class TorpedoRack : TorpedoAmmo replaces RocketBox {
+	Default {
+		Inventory.PickupMessage "$AP_TORPRACK";
+		Inventory.Amount 8;
+	}
+	States {
+		Spawn:
+			BTOR A -1;
+			Stop;		
+	}
+}

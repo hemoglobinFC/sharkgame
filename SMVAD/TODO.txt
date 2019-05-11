@@ -1,0 +1,86 @@
+DONE
+- Edit player class defaults
+- Replace doomplayer with sharkplayer
+- Make test level
+- Code health items
+- Code prototype zscript gun to completion(reload, custom ammo, altfire, upgrades, etc)
+- sprites for health items (injector, FAK, Portable FAK)
+- sprites for armor items (armor plate, vest, combat armor)
+
+TOFIX
+- Fine tune air capacity multiplier
+
+TODO
+-randomly generated item upgrade pickup - switch/case function that randomly picks a thing and if player has thing picks again, if full defaults to health bonus ala soulsphere?
+-SPORTER and AUTOCANNON are acquired through pickup or backpacks full of ammo
+-knockback effect for botching a bite-kill
+-speed up movement in water
+-all projectiles need to make cool light effects and particle trails
+-NO HITSCAN AMMO EXCEPT FOR SPORTER, THIS APPLIES TO MONSTERS TOO
+-----SOUND
+-walking sound effects
+-jumping sound effects
+-sound effects for all weapons
+-custom pickup, special, and secret sounds
+-----ARTE
+-Anna HUD sprites
+-Anna 3rd person sprites
+-level intro animations
+-menu screen and level complete screen art
+-HUD repaint and reprogramming to fit new ammo types and shit
+-----MELEE
+-fist primary and speedup
+-fist secondary charegup for berserk level damage - megapunch, tailwhip, knocks enemies away?
+-super special bite attack to regain HP by eating - jaws HUD animation, target HP limit on use
+-HUD sprite animation for bite attack - flashing screen with closing teeth, freezes game for a split second?
+-super melee mode - think God Hand - needs activation and chargeup meter programming
+-----HARPOON
+- Harpoon launcher special weapon - replaces chainsaw, when fired drags smaller enemies to player and drags to bigger enemies
+-----SPACER
+-Spacer AutoPistol + sprites - fires a singe shot as fast as you click
+-Spacer AP altfire - fires 5 round burst
+-Spacer AP altup - fires 5 round burst with stun round
+-----SPORTER
+-30mm Sporter + sprites - fires a big fucking bullet 100% accurate, slowaltfire charged explosion, upgrade pierces everything)
+-Sporter altfire - charges up an explosive shot
+-Sporter altup - punches through everything and explodes on contact with wall
+-----FLAK SHOTGUN
+-Mk9 Flak Shotgun + sprites - primary fires flechette shot like in Unreal Tournament, but smaller looking
+-Flak Shotgun altfire - fires bouncy frag grenade
+-Flak Shotgun altup - stacks multiple grenades, maybe not good enough -- sticky/smart bombs???
+-----ROTO Shotgun
+-ROTO-12 Shotgun - primary fires fullauto flechette shot
+-ROTO altfire - super shotgun basically
+-ROTO altup - fully automatic super shotgun, creates recoil by firing it
+-----VECTOR
+-Vector PDW - primary fires innacurate bullets
+-Vector altfire - pull-up optics for sniping
+-Vector altup - no recoil when using optics
+-----AUTOCANNON
+-MGO-30 Autocannon + sprites - full auto go-fuck-yourself 30mm bullets - same as Sporter
+-Autocannon altfire - accurate fire at half speed
+-Autocannon altup - all 3 barrels fire simultaneously
+-----MAWS
+-MAWS Launcher + sprites - front reload rocket launcher, basically
+-MAWS altfire - no idea, maybe TV guided missile ala Unreal Tournament Redeemer?
+-MAWS altup - all around bigger blast radius
+-----KAMKOZ
+-KAMKOZ Plasma gun + sprites - primary is basically the vanilla plasma cannon
+-KAMKOZ altfire - plasma flamethrower
+-KAMKOZ upgrade - double damage flamethrower, primary becomes a railgun
+-----DISTORTER
+-Phase Distorter + sprites - makes everyone in cone of fire explode with cool visual effects
+-----AMMO
+-bullets - like vanilla but not hitscan, for SPACER and VECTOR weapons
+-flak shells - like vanilla but not hitscan, for FLAK SHOTGUN and ROTO-12
+-30mm rounds - huge fuckoff bullets, for SPORTER and AUTOCANNON - need to figure out how to acquire them in Doom2
+-rockets - same shit different sprite, maybe a different class for big boom, used by MAWS
+-plasma container - cylinder looking thing, either in capsule or container form, same as vanilla effect
+-Backpack - gives everything + more room
+-----SPECIAL
+-berserk - each punch creates a bite attack, regardless of target health
+-megasphere - same as before
+-invincibility - berserk + invincibility
+-partial invisibility - make it suck less somehow
+-map - new sprite maybe
+-NVG - make it into an NVG eyepatch (hohoho)

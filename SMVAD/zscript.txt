@@ -1,0 +1,26 @@
+//global variables
+class Boolean: Inventory
+{
+    Default
+    {
+        Inventory.MaxAmount 1;
+        +INVENTORY.UNTOSSABLE
+        -INVENTORY.INVBAR
+    }
+}
+
+class WepTestUpgrade1 : boolean {}
+class WepTestUpgrade2 : boolean {}
+class WepUpgradeTorpedo1 : boolean {}
+//core files
+#include "zactors/player.zsc"
+
+//weapons
+#include "zactors/weapons/wep3testgun.zsc"
+#include "zactors/weapons/wep05torpedo.zsc"
+
+//inventory items & collectibles
+#include "zactors/items/healthItems.zsc"
+#include "zactors/items/armorItems.zsc"
+#include "zactors/items/ammoItems.zsc"
+#include "zactors/items/weaponUpgrade.zsc"

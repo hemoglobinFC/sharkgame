@@ -1,0 +1,57 @@
+//health items
+pulselight LIGHTFAK1
+{
+    color 0.2 0.2 0.7
+    size 16
+    secondarySize 38
+	interval 1
+	attenuate 1
+    offset 0 10 0
+}
+
+object HealthInjector {
+	frame BON1 {
+		light LIGHTFAK1
+	}
+}
+
+object FirstAidKit {
+	frame MEDIA {
+		light LIGHTFAK1
+	}
+}
+
+object PortableFAK {
+	frame STIMA {
+		light LIGHTFAK1
+	}
+}
+
+//armor items
+pulselight LIGHTARM1
+{
+    color 0.2 0.7 0.2
+    size 16
+    secondarySize 38
+	interval 1
+	attenuate 1
+    offset 0 10 0
+}
+
+object SpacerArmor {
+	frame ARM1 {
+		light LIGHTARM1
+	}
+}
+
+object CombatArmor {
+	frame ARM2 {
+		light LIGHTARM1
+	}
+}
+
+object BallisticPlate {
+	frame BON2 {
+		light LIGHTARM1
+	}
+}

@@ -1,0 +1,21 @@
+[enu default]
+
+WN_PROTO = "Prototype test gun";
+WN_TORPLAUNCH = "Torpedo Launcher";
+
+WP_PROTO = "You picked up the Proto Testgun!";
+WP_TORPLAUNCH = "You got the Torpedo Launcher!";
+
+AP_TORPEDO = "Picked up a torpedo.";
+AP_TORPRACK = "Picked up a whole rack of torpedos!";
+
+IP_FAK = "Picked up a FAK. +20 HP";
+IP_FAKP = "Picked up a portable FAK. +10 HP";
+IP_HINJ = "Picked up a health injector. +1 HP";
+IP_SARM = "Picked up a Spacer Flak Vest. +75 AP";
+IP_CARM = "Picked up a Combat Vest. +150 AP";
+IP_BPLATE = "Picked up a ballistic plate. +2 AP";
+
+IN_FAK = "Portable FAK";
+
+OB_TORPEDO = "%o got holed by %k's torpedo.";

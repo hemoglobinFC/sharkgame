@@ -1,0 +1,104 @@
+class TestGun : Weapon replaces Shotgun{
+	Default {
+        Tag "$WN_PROTO";
+		Inventory.PickupMessage "$WP_PROTO";
+		Weapon.AmmoType "Shell";
+		Weapon.AmmoUse 1;
+		Weapon.AmmoGive 16;
+		Weapon.SlotNumber 3;
+		Weapon.AmmoType2 "Shell";
+		Weapon.AmmoUse2 3;
+		Weapon.AmmoGive2 0;
+		AttackSound "weapons/shotgf";
+		decal "bulletChip";
+	}
+	States {
+		Spawn:
+			SHOT A -1;
+			Stop;
+		Ready:
+			SHTG B 1 A_WeaponReady;
+			Loop;
+		Select:
+			SHTG A 1 A_Raise;
+			Loop;
+		Deselect:
+			SHTG A 1 A_Lower;
+			Loop;
+		Fire:
+			TNT1 A 0 {
+				if (CountInv("WepTestUpgrade1") == 1) { return ResolveState("FireUp"); }
+				if (CountInv("Shell") == 0) { return ResolveState("FireFail"); }
+				return ResolveState(null);
+			} //this line checks if the weapon has the upgrade or no ammo
+			TNT1 A 0 {
+				A_Light(3);
+				A_FireBullets(5.5,3,8,4,"BulletPuff",1);
+				return ResolveState(null);
+			}
+			SHTG A 1 Offset(0,44);
+			SHTG A 1 Offset(0,48);
+			SHTG A 1 Offset(0,44);
+			SHTG A 1 Offset(0,40){
+				A_Light(0);
+				return ResolveState(null);
+			}
+			SHTG A 1 Offset(0,37);
+			SHTG A 1 Offset(0,35);
+			SHTG A 3;
+			Goto Ready;
+		FireUp:
+			TNT1 A 0 {
+				if (CountInv("Shell") < 2) { return ResolveState("FireFail"); }
+				return ResolveState(null);
+			}//if ammo less than 2 it'll do a standard fire
+			TNT1 A 0 {
+				A_Light(3);
+				A_FireBullets(11,6,16,5,"BulletPuff",1);
+				A_TakeInventory("Shell",1);
+				return ResolveState(null);
+			}
+			SHTG A 1 Offset(0,44);
+			SHTG A 1 Offset(0,48);
+			SHTG A 1 Offset(0,44);
+			SHTG A 1 Offset(0,40){
+				A_Light(0);
+				return ResolveState(null);
+			}
+			SHTG A 1 Offset(0,37);
+			SHTG A 1 Offset(0,35);
+			SHTG A 3;
+			Goto Ready;
+		AltFire:
+			TNT1 A 0 {
+				if (CountInv("WepTestUpgrade2") != 1) { return ResolveState("FireFail"); }
+				if (CountInv("Shell") < 3) { return ResolveState("FireFail"); }
+				return ResolveState(null);
+			}//fails the altfire if conditions aren't met
+			TNT1 A 0 {
+				A_Light(3);
+				A_FireBullets(11,6,16,5,"BulletPuff",1);
+				return ResolveState(null);
+			}
+			SHTG A 1 Offset(0,44);
+			SHTG A 1 Offset(0,48);
+			SHTG A 1 Offset(0,44);
+			SHTG A 1 Offset(0,40){
+				A_Light(0);
+				return ResolveState(null);
+			}
+			SHTG A 1 Offset(0,37);
+			SHTG A 1 Offset(0,35);
+			SHTG A 3;
+			Goto Ready;
+			
+		FireFail:
+			SHTG A 1 Offset(0,44);
+			SHTG A 1 Offset(0,48);
+			SHTG A 2 Offset(0,44);
+			SHTG A 1 Offset(0,44);
+			SHTG A 1 Offset(0,48);
+			SHTG A 2 Offset(0,44);
+			goto Ready;
+	}
+}

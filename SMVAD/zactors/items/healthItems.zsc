@@ -1,0 +1,111 @@
+/*
+Portable FAK.
+A First Aid Kit that's miniaturized in size and small enough to lug around
+safely without much encumberance. To use, just hit the use button and
+instantly deploy the health boost into yourself, until the charges go out.
+
+Custom inventory item that replaces the Stimpack and gives a special item
+to use in the inventory menu.
+*/
+class PortableFAK : CustomInventory replaces Stimpack {
+ 	Default {
+		Inventory.PickupMessage "$IP_FAKP";
+		+FLOORCLIP
+		+COUNTITEM
+		+INVENTORY.ALWAYSPICKUP
+	}
+	States {
+		Spawn:
+			STIM A 30;
+			STIM A 5 Bright;
+			loop;
+		Pickup:
+			TNT1 A 0 {
+				A_GiveInventory("PortableFAKitem",1);
+				Return Resolvestate(null);
+			}
+			Stop;
+	}
+}
+//this one is given by the PortableFAK class to be used in the inventory
+class PortableFAKitem : customInventory replaces ArtiHealth {
+	Default {
+		Inventory.MaxAmount 10;
+		Inventory.PickupMessage "$IP_FAKP";
+		Inventory.Icon "STIMA0";
+		tag "$IN_FAK";
+        Inventory.DefMaxAmount;
+        +COUNTITEM
+        +INVENTORY.INVBAR
+        +INVENTORY.PICKUPFLASH
+        +INVENTORY.FANCYPICKUPSOUND
+        +FLOORCLIP
+	}
+	States {
+		Spawn:
+			STIM A 35;	
+			loop;
+		Use:
+			TNT1 A 0;
+			TNT1 A 0 A_JumpIfHealthLower(200,"UseSuccess");
+			fail;
+		UseSuccess:
+			TNT1 A 0
+			{
+				A_SetBlend("blue",0.15,8);
+				A_GiveInventory("PortableFAKhealth",1);
+			}
+			stop;
+	}
+}
+//this one gives you HP when you use the PortableFAKitem in the inventory
+class PortableFAKhealth : Health {
+	Default {
+		Inventory.Amount 10;
+		Inventory.MaxAmount 150;
+		Inventory.PickupMessage "$IP_FAK";
+		+FLOORCLIP
+		+COUNTITEM
+	}
+	States {
+		Spawn:
+			MEDI A 35;
+			loop;
+	}
+}
+/*
+First Aid Kit
+Common manufactored 
+*/
+class FirstAidKit : Health replaces Medikit {
+	Default {
+		Inventory.Amount 20;
+		Inventory.MaxAmount 150;
+		Inventory.PickupMessage "$IP_FAK";
+		+FLOORCLIP
+		+COUNTITEM
+	}
+	States {
+		Spawn:
+			MEDI A 30;
+			MEDI A 5 Bright;
+			loop;
+	}
+}
+
+class HealthInjector : Health replaces HealthBonus {
+	Default {
+		Inventory.Amount 1;
+		Inventory.MaxAmount 150;
+		Inventory.PickupMessage "$IP_HINJ";
+		+COUNTITEM
+		+FLOORCLIP
+		+INVENTORY.ALWAYSPICKUP
+	}
+	States {
+		Spawn:
+			BON1 CABCA 6;
+			BON1 B 5 Bright;
+			loop;
+	}
+}
